@@ -147,27 +147,28 @@ resource "aws_iam_role_policy" "worker" {
     ]
   })
 }
-
 resource "aws_lambda_function" "worker" {
   function_name = "ai-cti-worker"
   role          = aws_iam_role.worker.arn
   runtime       = "python3.13"
-  handler       = "app.worker.lambda_handler"
+  handler       = "app.scheduled_worker.lambda_handler"
 
   filename         = "${path.module}/../../.build/worker.zip"
   source_code_hash = filebase64sha256("${path.module}/../../.build/worker.zip")
 
-  timeout     = 300
+  timeout     = 600
   memory_size = 256
 
   environment {
     variables = {
       DATA_BUCKET = aws_s3_bucket.data.id
+      RUN_TABLE   = aws_dynamodb_table.runs.name
     }
   }
 
   depends_on = [
     aws_iam_role_policy.worker,
+    aws_iam_role_policy.worker_automation,
     aws_cloudwatch_log_group.worker
   ]
 }
