@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "organization": "Harbor Research",
+  "assets": [
+    {
+      "asset_id": "SYN-WEB-001",
+      "name": "Fictional Research Portal",
+      "owner": "Application Operations",
+      "business_criticality": "high",
+      "internet_exposed": true,
+      "components": [
+        {
+          "component_id": "CMP-LOGGING-001",
+          "component_key": "demo_apache_log4j",
+          "vendor": "Apache",
+          "product": "Log4j",
+          "version": "unknown"
+        }
+      ]
+    },
+    {
+      "asset_id": "SYN-TRANSFER-001",
+      "name": "Fictional File Transfer Service",
+      "owner": "Infrastructure Operations",
+      "business_criticality": "high",
+      "internet_exposed": true,
+      "components": [
+        {
+          "component_id": "CMP-TRANSFER-001",
+          "component_key": "demo_moveit_transfer",
+          "vendor": "Progress",
+          "product": "MOVEit Transfer",
+          "version": "unknown"
+        }
+      ]
+    },
+    {
+      "asset_id": "SYN-FILE-001",
+      "name": "Fictional Internal File Server",
+      "owner": "Infrastructure Operations",
+      "business_criticality": "medium",
+      "internet_exposed": false,
+      "components": [
+        {
+          "component_id": "CMP-WINDOWS-001",
+          "component_key": "demo_windows_smb",
+          "vendor": "Microsoft",
+          "product": "Windows SMB",
+          "version": "unknown"
+        }
+      ]
+    },
+    {
+      "asset_id": "SYN-OTHER-001",
+      "name": "Fictional Unmapped Application",
+      "owner": "Research Operations",
+      "business_criticality": "low",
+      "internet_exposed": false,
+      "components": [
+        {
+          "component_id": "CMP-OTHER-001",
+          "component_key": "demo_other",
+          "vendor": "Synthetic Vendor",
+          "product": "Unmapped Application",
+          "version": "unknown"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "rules": [
+    {
+      "rule_id": "DEMO-RULE-001",
+      "cve_id": "CVE-2021-44228",
+      "component_key": "demo_apache_log4j",
+      "basis": "Synthetic exercise mapping. Confirm the installed component and affected version using authoritative advisory information."
+    },
+    {
+      "rule_id": "DEMO-RULE-002",
+      "cve_id": "CVE-2023-34362",
+      "component_key": "demo_moveit_transfer",
+      "basis": "Synthetic exercise mapping. Confirm the installed component and affected version using authoritative advisory information."
+    },
+    {
+      "rule_id": "DEMO-RULE-003",
+      "cve_id": "CVE-2017-0144",
+      "component_key": "demo_windows_smb",
+      "basis": "Synthetic exercise mapping. Confirm the installed component, affected version, and patch status using authoritative advisory information."
+    }
+  ]
+}
