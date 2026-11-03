@@ -4,6 +4,32 @@ An AWS portfolio pipeline that combines public vulnerability intelligence
 with a fictional asset inventory to produce explainable review priorities
 and AI-assisted draft reports.
 
+## Problem and personal contribution
+
+How can an analyst prioritize public vulnerability evidence without confusing
+a matching exercise rule with a confirmed vulnerable asset?
+
+In this personal project, I built the Python collection and normalization
+pipeline, explicit synthetic applicability rules, deterministic KEV/EPSS-based
+scoring, AWS scheduling and run tracking, and review-required AI report drafts.
+Code owns scores and applicability; the model supplies commentary that still
+requires analyst review.
+
+## Evidence to review first
+
+| Review question | Implementation or recorded evidence |
+| --- | --- |
+| How are priorities calculated? | [Scoring code](app/prioritize.py), [policy rationale](docs/prioritization.md) |
+| What does an analyst receive? | [Annotated synthetic report](docs/samples/reviewed-report.md) |
+| What was exercised in AWS? | [October 29 automation verification](docs/automation-verification.md) |
+| What is and is not validated? | [Evaluation guide](docs/evaluation.md) |
+
+The recorded automation exercise processed three synthetic candidate assessments.
+Its final recorded schedule state was disabled. This is historical evidence,
+not a claim that a service is currently running. The evaluation guide lists
+58 expected local tests, not a verified run count; no tests were rerun for this
+documentation review.
+
 ## Purpose
 
 Help an analyst answer:
@@ -135,7 +161,8 @@ and run tracking.
 GitHub Actions runs the local evaluation on pushes and pull requests.
 Live AWS processing and notifications are verified separately.
 
-See the evaluation guide for the actual verified count and limitations.
+See the evaluation guide for coverage and limitations. Its expected count is
+not evidence of a completed passing run.
 
 ## Project structure
 
@@ -173,7 +200,7 @@ and resource names. Adapt them before deploying elsewhere.
 - [Normalization](docs/normalization.md)
 - [Asset applicability](docs/asset-applicability.md)
 - [Prioritization](docs/prioritization.md)
-- [Automation](docs/automation.md)
+- [Automation verification](docs/automation-verification.md)
 - [Evaluation](docs/evaluation.md)
 - [Operations](docs/operations.md)
 - [Demo](docs/demo.md)
@@ -190,6 +217,13 @@ and resource names. Adapt them before deploying elsewhere.
 - No absent-run heartbeat alarm.
 - No production compliance or security certification.
 - Terraform state remains local and requires protected backups.
+
+## Next validation
+
+Record an actual local test run before citing a passing count. Expand semantic
+review for attribution and unsupported applicability claims, verify installed
+versions and patch state in any future real inventory, and test crash/retry
+behavior and absent-run monitoring before broader operational use.
 
 ## Costs and cleanup
 
